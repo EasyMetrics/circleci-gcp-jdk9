@@ -54,7 +54,9 @@ RUN curl --silent --show-error --location --fail --retry 3 --output /tmp/gradle.
   && ln -s /opt/gradle-* /opt/gradle \
   && /opt/gradle/bin/gradle -version
 
+# Update PATH for Java tools
 RUN export PATH=$PATH:/opt/gradle/bin
+ENV PATH="/opt/gradle/bin:$PATH"
 
 # Install and Configure Docker Tooling
 # ...
